@@ -33,3 +33,9 @@ under `test/` (`npm test` will pick them up) is encouraged but optional.
 Implement the logic in `src/commands/*.js` — one function per file, each
 stubbed with a `not implemented` error and a doc comment describing its
 contract. `src/cli.js` and `src/db.js` are wired up already.
+
+## Assumptions
+
+- A coupon created with an expiration time in the past is allowed to exist, but it is rejected when someone tries to apply it.
+- Percentage discount values are interpreted as percentage points (for example, 15 means 15%).
+- Currency calculations are rounded to cents, and a discount can never reduce the final total below 0.
